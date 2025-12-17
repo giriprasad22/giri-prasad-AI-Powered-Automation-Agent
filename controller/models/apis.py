@@ -9,15 +9,15 @@ from PIL import Image
 import ollama
 from ultralytics import YOLO
 
-from operate.config import Config
-from operate.models.prompts import (
+from controller.config import Config
+from controller.models.prompts import (
     get_user_first_message_prompt,
     get_user_prompt,
     get_system_prompt,
 )
-from operate.utils.screenshot import capture_screen_with_cursor
-from operate.utils.label import add_labels
-from operate.utils.style import ANSI_BRIGHT_MAGENTA, ANSI_GREEN, ANSI_RED, ANSI_RESET
+from controller.core.screenshot import capture_screen_with_cursor
+from controller.core.label import add_labels
+from controller.core.style import ANSI_BRIGHT_MAGENTA, ANSI_GREEN, ANSI_RED, ANSI_RESET
 
 # Load configuration
 config = Config()

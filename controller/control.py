@@ -3,17 +3,16 @@ import os
 import time
 import asyncio
 from prompt_toolkit import prompt
-from operate.exceptions import ModelNotRecognizedException
+from controller.exceptions import ModelNotRecognizedException
 import platform
 import json
 
-# from operate.models.prompts import USER_QUESTION, get_system_prompt
-from operate.models.prompts import (
+from controller.models.prompts import (
     USER_QUESTION,
     get_system_prompt,
 )
-from operate.config import Config
-from operate.utils.style import (
+from controller.config import Config
+from controller.core.style import (
     ANSI_GREEN,
     ANSI_RESET,
     ANSI_YELLOW,
@@ -22,8 +21,8 @@ from operate.utils.style import (
     ANSI_BLUE,
     ANSI_CYAN,
 )
-from operate.utils.operating_system import OperatingSystem
-from operate.models.apis import get_next_action
+from controller.core.operating_system import OperatingSystem
+from controller.models.apis import get_next_action
 
 # Load configuration
 config = Config()
@@ -107,14 +106,12 @@ def main(model, terminal_prompt, voice_mode=False, verbose_mode=False):
                 get_next_action(model, messages, objective, session_id)
             )
 
-            stop = operate(operations, model, messages)
+            stop = operate(operations, model)
             if stop:
-                print_session_stats()
                 break
 
             loop_count += 1
             if loop_count > 10:
-                print_session_stats()
                 break
         except ModelNotRecognizedException as e:
             print(

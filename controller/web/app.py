@@ -14,10 +14,10 @@ import subprocess
 # Add parent directory to path
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
 
-from operate.config import Config
-from operate.models.apis import get_next_action
-from operate.models.prompts import get_system_prompt, USER_QUESTION
-from operate.utils.operating_system import OperatingSystem
+from controller.config import Config
+from controller.models.apis import get_next_action
+from controller.models.prompts import get_system_prompt, USER_QUESTION
+from controller.core.operating_system import OperatingSystem
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'giri-prasad-secret'

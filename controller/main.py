@@ -2,8 +2,17 @@
 giri-prasad
 """
 import argparse
-from operate.utils.style import ANSI_BRIGHT_MAGENTA
-from operate.operate import main
+import sys
+from pathlib import Path
+
+# Ensure project root is on sys.path so `import controller` works
+# when running this file directly (python controller/main.py)
+_project_root = Path(__file__).resolve().parents[1]
+if str(_project_root) not in sys.path:
+    sys.path.insert(0, str(_project_root))
+
+from controller.core.style import ANSI_BRIGHT_MAGENTA
+from controller.control import main
 
 
 def main_entry():

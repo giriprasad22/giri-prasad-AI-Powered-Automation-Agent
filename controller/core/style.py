@@ -22,3 +22,4 @@ ANSI_BLUE = "\033[94m" if supports_ansi() else ""  # Bright blue
 ANSI_YELLOW = "\033[33m" if supports_ansi() else ""  # Standard yellow text
 ANSI_RED = "\033[31m" if supports_ansi() else ""
 ANSI_BRIGHT_MAGENTA = "\033[95m" if supports_ansi() else ""  # Bright magenta text
+ANSI_CYAN = "\033[36m" if supports_ansi() else ""  # Cyan text

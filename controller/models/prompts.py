@@ -1,5 +1,5 @@
 import platform
-from operate.config import Config
+from controller.config import Config
 
 # Load configuration
 config = Config()

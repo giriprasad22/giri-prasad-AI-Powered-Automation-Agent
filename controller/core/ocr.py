@@ -1,4 +1,4 @@
-from operate.config import Config
+from controller.config import Config
 from PIL import Image, ImageDraw
 import os
 from datetime import datetime
